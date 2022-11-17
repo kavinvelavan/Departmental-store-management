@@ -1,0 +1,187 @@
+import java.util.Scanner;
+interface operations{
+String profile();
+void createAccount();
+void products();
+void place_order();
+}
+class customer implements operations {
+private String name;
+private int phone;
+private String place;
+Scanner s= new Scanner(System.in);
+public void setName(String name){
+this.name=name;
+}
+public String getName(){
+return name;
+}
+public void setPhone(int phone){
+this.phone=phone;
+}
+public int getPhone(){
+return phone;
+}
+public void setPlace(String place){
+this.place=place;
+}
+public String getPlace(){
+return place;
+}
+public void products(){
+System.out.println("Stationary products --- No 1");
+System.out.println("Dairy products --- No 2");
+System.out.println("Food products --- No 3");
+System.out.println("Personal Care products --- No 4");
+}
+public void place_order(){
+int ch=s.nextInt();
+switch(ch)
+{
+case 1:
+System.out.println("1.Paper--5\n2.pen--20\n3.pencil--5");
+System.out.println("enter a product :");
+int a=s.nextInt();
+switch(a)
+{
+case 1:
+System.out.println("enter a quantity :");
+int b=s.nextInt();
+System.out.println("Paper Qty "+b+" Amount "+ 5*b);
+break;
+case 2:
+System.out.println("enter a quantity :");
+int c=s.nextInt();
+System.out.println("Pen Qty "+c+" Amount "+ 20*c);
+break;
+case 3:
+System.out.println("enter a quantity :");
+int d=s.nextInt();
+System.out.println("Pencil Qty "+d+" Amount "+ 5*d);
+break;
+default:
+System.out.println("No purchase");
+}
+case 2:
+System.out.println("1.Milk--20\n2.Ghee--100\n3.Icecream--45");
+System.out.println("enter a product :");
+int q=s.nextInt();
+switch(q)
+{
+case 1:
+System.out.println("enter a quantity :");
+int w=s.nextInt();
+System.out.println("Milk Qty "+w+" Amount "+ 20*w);
+break;
+case 2:
+System.out.println("enter a quantity :");
+int e=s.nextInt();
+System.out.println("Ghee Qty "+e+" Amount "+ 100*e);
+break;
+case 3:
+System.out.println("enter a quantity :");
+int r=s.nextInt();
+System.out.println("Icecream Qty "+r+" Amount "+ 45*r);
+break;
+default:
+System.out.println("No purchase");
+}
+case 3:
+System.out.println("1.Noodles--40\n2.lays--10\n3.kurukure--10");
+System.out.println("enter a product :");
+int o=s.nextInt();
+switch(o)
+{
+case 1:
+System.out.println("enter a quantity :");
+int f=s.nextInt();
+System.out.println("Noodles Qty "+f+" Amount "+ 40*f);
+break;
+case 2:
+System.out.println("enter a quantity :");
+int g=s.nextInt();
+System.out.println("lays Qty "+g+" Amount "+ 10*g);
+break;
+case 3:
+System.out.println("enter a quantity :");
+int h=s.nextInt();
+System.out.println("kurukure Qty "+h+" Amount "+ 10*h);
+break;
+default:
+System.out.println("No purchase");
+}
+case 4:
+System.out.println("1.Soap--30\n2.Shampoo--2\n3.Brush--20");
+System.out.println("enter a product :");
+int t=s.nextInt();
+switch(t)
+{
+case 1:
+System.out.println("enter a quantity :");
+int l=s.nextInt();
+System.out.println("Soap Qty "+l+" Amount"+ 40*l);
+break;
+case 2:
+System.out.println("enter a quantity :");
+int k=s.nextInt();
+System.out.println("Shampoo Qty "+k+" Amount"+ 10*k);
+break;
+case 3:
+System.out.println("enter a quantity :");
+int j=s.nextInt();
+System.out.println("Brush Qty "+j+" Amount"+ 10*j);
+break;
+default:
+System.out.println("No purchase");
+}
+default:
+System.out.println("out of stock");
+}
+}
+//method to open an account
+public void createAccount(){
+System.out.println("Enter your name : ");
+name=s.next();
+System.out.println("Enter your phone number :");
+phone=s.nextInt();
+System.out.println("Enter your place :");
+place=s.next();
+}
+public String profile(){
+return "Name :"+getName()+" Phone :"+getPhone()+" Place :"+getPlace();
+}
+}
+public class Main{
+public static void main(String args[]){
+Scanner s= new Scanner(System.in);
+System.out.println("\t\t\t\tKCE STORE");
+int i=1,n=100;
+customer c[]=new customer[n];
+System.out.println("enter number of customers : ");
+int n1=s.nextInt();
+while(i<n1){
+System.out.println("1.Register\n2.Order\n3.My profile\n");
+System.out.print("enter a choice :");
+int choice=s.nextInt();
+switch(choice){
+case 1:
+System.out.println("-----------------------Welcome to registeration
+page---------------------------");
+c[i]=new customer();
+c[i].createAccount();
+break;
+case 2:
+System.out.println("Place your Order here.");
+c[i].products();
+c[i].place_order();
+break;
+case 3:
+System.out.println(c[i].profile());
+break;
+default:
+System.out.println("Invalid choice");
+break;
+}
+}
+}
+}
